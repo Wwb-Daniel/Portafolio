@@ -74,27 +74,31 @@ export default function Portfolio() {
   const projects = [
     {
       title: "OmniPlay",
-      description: "Plataforma de contenido interactivo inspirada en TikTok, diseñada para comunidades de gaming y entretenimiento digital",
+      description: "Plataforma de entretenimiento multimedia con múltiples funcionalidades",
       link: "https://onmiplay.vercel.app/",
       image: "/images/onmiplay.png",
+      featured: true,
     },
     {
-      title: "EDHEX",
-      description: "Sistema de entradas digitales seguras e imposibles de falsificar",
-      link: "https://edhex.vercel.app/",
-      image: "/images/edhex entradas.png",
-    },
-    {
-      title: "EDHEX ADMIM",
-      description: "Sistema de Graduación • Control Total de Entradas",
-      link: "https://edhex-admim.vercel.app/",
-      image: "/images/ehdex admin.png",
-    },
-    {
-      title: "YouTube Clone",
-      description: "Plataforma de videos inspirada en YouTube",
+      title: "YT Clone",
+      description: "Clon de YouTube con API funcional y diseño moderno",
       link: "https://v0-youtube-clone-with-api-alpha.vercel.app/",
       image: "/images/YT.png",
+      featured: true,
+    },
+    {
+      title: "EDHEX Admin",
+      description: "Sistema de administración para graduaciones educativas",
+      link: "https://edhex-admim.vercel.app/",
+      image: "/images/ehdex admin.png",
+      featured: true,
+    },
+    {
+      title: "EDHEX Generator",
+      description: "Generador de tickets y validación para eventos educativos",
+      link: "https://edhex.vercel.app/",
+      image: "/images/edhex entradas.png",
+      featured: true,
     },
     {
       title: "BioEnergía RD",
@@ -134,6 +138,10 @@ export default function Portfolio() {
     },
   ]
 
+  // Separate featured and regular projects
+  const featuredProjects = projects.filter((project) => project.featured)
+  const regularProjects = projects.filter((project) => !project.featured)
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-[#1a0033] to-[#330066] text-white">
       {/* Header */}
@@ -165,15 +173,15 @@ export default function Portfolio() {
           <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
             <Image
               src="/images/perfi.png"
-              alt="Victor de Jesus"
+              alt="Victor De Jesús"
               width={128}
               height={128}
-              className="w-full h-full object-cover object-center"
-              style={{ objectFit: "contain" }}
+              className="w-full h-full object-cover"
+              priority
             />
           </div>
         </div>
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">Victor de Jesus</h1>
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">Victor De Jesús</h1>
         <h2 className="text-xl md:text-2xl text-purple-400 mb-6">Desarrollador de Sistemas y apps</h2>
         <p className="max-w-2xl text-gray-300 mb-8">
           Joven desarrollador con pasión por crear interfaces modernas, interactivas y responsivas.
@@ -195,7 +203,7 @@ export default function Portfolio() {
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-purple-400">Quién soy</h3>
                 <p className="text-gray-300 mb-4">
-                  Soy Victor de Jesus, mejor conocido como Líder SK, un joven de 18 años con un nivel de aprendizaje
+                  Soy Victor De Jesús, mejor conocido como Líder SK, un joven de 18 años con un nivel de aprendizaje
                   intermedio en desarrollo web. Actualmente soy estudiante y me he destacado por mi gran espíritu de
                   superación y pasión por la programación.
                 </p>
@@ -206,98 +214,42 @@ export default function Portfolio() {
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-purple-400">Estado actual</h3>
-                <ul className="space-y-2 text-gray-300">
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-purple-500"></span>
-                    <span>Edad: 18 años</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-purple-500"></span>
-                    <span>Nivel de aprendizaje: Intermedio y de manera Autodidacta</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-purple-500"></span>
-                    <span>Reconocido por mi dedicación, creatividad y capacidad de aprendizaje rápido</span>
-                  </li>
-                </ul>
+                <h3 className="text-xl font-semibold mb-4 text-purple-400">Tecnologías dominadas</h3>
+                <div className="grid grid-cols-2 gap-4 text-gray-300">
+                  <div>
+                    <h4 className="font-medium text-purple-300 mb-2">Frontend</h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• HTML5 & CSS3</li>
+                      <li>• JavaScript</li>
+                      <li>• TypeScript</li>
+                      <li>• React.js</li>
+                      <li>• Next.js</li>
+                      <li>• Tailwind CSS</li>
+                      <li>• Bases de datos</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-purple-300 mb-2">En aprendizaje</h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Flutter</li>
+                      <li>• React Native</li>
+                      <li>• Node.js</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <h4 className="font-medium text-purple-300 mb-2">Especialidades</h4>
+                  <ul className="space-y-1 text-sm text-gray-300">
+                    <li>• Glassmorphism y diseños modernos</li>
+                    <li>• Interfaces responsivas e interactivas</li>
+                    <li>• Animaciones y transiciones</li>
+                    <li>• Estilo visual Bento UI</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </CardContent>
         </Card>
-      </section>
-
-      {/* Skills Section */}
-      <section id="skills" className="container mx-auto px-4 py-20">
-        <h2 className="text-3xl font-bold mb-12 text-center">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">🧠 Habilidades <span className="text-base">(Desarrollador Web/App Full Stack)</span></span>
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Habilidad 1 */}
-          <Card className="bg-black/50 border-purple-900/40 shadow-lg transition-all duration-700 ease-out opacity-0 translate-y-8 animate-fadein-slideup [animation-delay:0ms]">
-            <CardContent className="flex flex-col items-center p-6">
-              <span className="text-4xl mb-3">💻</span>
-              <h3 className="text-lg font-semibold text-purple-400 mb-2 text-center">Frontend & Web Apps</h3>
-              <p className="text-gray-300 text-center text-base">Desarrollo con HTML, CSS, JavaScript, TypeScript y frameworks modernos como Flutter (en proceso de aprendizaje).</p>
-            </CardContent>
-          </Card>
-          {/* Habilidad 2 */}
-          <Card className="bg-black/50 border-purple-900/40 shadow-lg transition-all duration-700 ease-out opacity-0 translate-y-8 animate-fadein-slideup [animation-delay:150ms]">
-            <CardContent className="flex flex-col items-center p-6">
-              <span className="text-4xl mb-3">📱</span>
-              <h3 className="text-lg font-semibold text-purple-400 mb-2 text-center">Aplicaciones Estilo TikTok</h3>
-              <p className="text-gray-300 text-center text-base">Experiencia creando plataformas interactivas tipo TikTok, con reproductores de video, subida de archivos, audio personalizado y funciones sociales (likes, comentarios, explorar, etc.).</p>
-            </CardContent>
-          </Card>
-          {/* Habilidad 3 */}
-          <Card className="bg-black/50 border-purple-900/40 shadow-lg transition-all duration-700 ease-out opacity-0 translate-y-8 animate-fadein-slideup [animation-delay:300ms]">
-            <CardContent className="flex flex-col items-center p-6">
-              <span className="text-4xl mb-3">🧩</span>
-              <h3 className="text-lg font-semibold text-purple-400 mb-2 text-center">Bases de Datos</h3>
-              <p className="text-gray-300 text-center text-base">Diseño e implementación de bases de datos complejas usando Supabase, SQL y Flask, aplicando reglas de seguridad (RLS) y alta eficiencia.</p>
-            </CardContent>
-          </Card>
-          {/* Habilidad 4 */}
-          <Card className="bg-black/50 border-purple-900/40 shadow-lg transition-all duration-700 ease-out opacity-0 translate-y-8 animate-fadein-slideup [animation-delay:450ms]">
-            <CardContent className="flex flex-col items-center p-6">
-              <span className="text-4xl mb-3">🔧</span>
-              <h3 className="text-lg font-semibold text-purple-400 mb-2 text-center">Backend Lógico</h3>
-              <p className="text-gray-300 text-center text-base">Capacidad para construir sistemas funcionales completos en pocos días, incluyendo APIs, autenticación de usuarios y almacenamiento de medios.</p>
-            </CardContent>
-          </Card>
-          {/* Habilidad 5 */}
-          <Card className="bg-black/50 border-purple-900/40 shadow-lg transition-all duration-700 ease-out opacity-0 translate-y-8 animate-fadein-slideup [animation-delay:600ms]">
-            <CardContent className="flex flex-col items-center p-6">
-              <span className="text-4xl mb-3">📋</span>
-              <h3 className="text-lg font-semibold text-purple-400 mb-2 text-center">Formularios Avanzados</h3>
-              <p className="text-gray-300 text-center text-base">Creación de formularios complejos, intuitivos y responsivos, como los utilizados en Bacano RP, adaptados para la mejor experiencia de usuario.</p>
-            </CardContent>
-          </Card>
-          {/* Habilidad 6 */}
-          <Card className="bg-black/50 border-purple-900/40 shadow-lg transition-all duration-700 ease-out opacity-0 translate-y-8 animate-fadein-slideup [animation-delay:750ms]">
-            <CardContent className="flex flex-col items-center p-6">
-              <span className="text-4xl mb-3">⚙️</span>
-              <h3 className="text-lg font-semibold text-purple-400 mb-2 text-center">Optimización y Compatibilidad</h3>
-              <p className="text-gray-300 text-center text-base">Resolución de errores críticos, adaptando apps para funcionar en iPhone, Android y escritorio sin problemas.</p>
-            </CardContent>
-          </Card>
-          {/* Habilidad 7 */}
-          <Card className="bg-black/50 border-purple-900/40 shadow-lg transition-all duration-700 ease-out opacity-0 translate-y-8 animate-fadein-slideup [animation-delay:900ms]">
-            <CardContent className="flex flex-col items-center p-6">
-              <span className="text-4xl mb-3">🚀</span>
-              <h3 className="text-lg font-semibold text-purple-400 mb-2 text-center">Productividad y Velocidad</h3>
-              <p className="text-gray-300 text-center text-base">Capacidad para entregar funcionalidades reales y completas en tiempo récord.</p>
-            </CardContent>
-          </Card>
-          {/* Habilidad 8 */}
-          <Card className="bg-black/50 border-purple-900/40 shadow-lg transition-all duration-700 ease-out opacity-0 translate-y-8 animate-fadein-slideup [animation-delay:1050ms]">
-            <CardContent className="flex flex-col items-center p-6">
-              <span className="text-4xl mb-3">🧪</span>
-              <h3 className="text-lg font-semibold text-purple-400 mb-2 text-center">Aprendiz Rápido</h3>
-              <p className="text-gray-300 text-center text-base">Dominando nuevas herramientas como Flutter, Next.js o C++ según las necesidades del proyecto.</p>
-            </CardContent>
-          </Card>
-        </div>
       </section>
 
       {/* Projects Section */}
@@ -308,16 +260,36 @@ export default function Portfolio() {
           </span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              title={project.title}
-              description={project.description}
-              link={project.link}
-              image={project.image}
-            />
-          ))}
+        {/* Featured Projects */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-semibold mb-8 text-center text-purple-300">Trabajos Destacados</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+            {featuredProjects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                title={project.title}
+                description={project.description}
+                link={project.link}
+                image={project.image}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Regular Projects */}
+        <div>
+          <h3 className="text-2xl font-semibold mb-8 text-center text-purple-300">Otros Proyectos</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {regularProjects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                title={project.title}
+                description={project.description}
+                link={project.link}
+                image={project.image}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -348,7 +320,7 @@ export default function Portfolio() {
                       className="flex items-center gap-3 text-gray-300 hover:text-purple-400 transition-colors"
                     >
                       <Phone className="w-5 h-5" />
-                      <span>1 (829) 548-6367</span>
+                      <span>1 (829) 350-7459</span>
                     </Link>
                   </li>
                 </ul>
@@ -397,7 +369,7 @@ export default function Portfolio() {
       <footer className="bg-black/60 backdrop-blur-md py-8">
         <div className="container mx-auto px-4 text-center">
           <p className="text-gray-400">
-            © {new Date().getFullYear()} Victor de Jesus (Líder SK). Todos los derechos reservados.
+            © {new Date().getFullYear()} Daniel Núñez (Líder SK). Todos los derechos reservados.
           </p>
         </div>
       </footer>

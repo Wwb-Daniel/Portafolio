@@ -6,13 +6,18 @@ import { Inter } from "next/font/google"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Daniel Núñez | Líder SK - Portafolio",
+  title: "Victor De Jesús | Líder SK - Portafolio",
   description:
-    "Portafolio profesional de Daniel Núñez, desarrollador web especializado en interfaces modernas e interactivas.",
+    "Portafolio profesional de Victor De Jesus, desarrollador web especializado en interfaces modernas e interactivas.",
   icons: {
-    icon: "/favicon.png",
+    icon: [
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.png", sizes: "16x16", type: "image/png" },
+    ],
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({

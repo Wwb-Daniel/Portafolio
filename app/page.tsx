@@ -87,6 +87,13 @@ export default function Portfolio() {
       featured: true,
     },
     {
+      title: "CinemaDB",
+      description: "Pagina de peliculas con API funcional y diseño moderno",
+      link: "https://v0-fork-of-cinema-dbtv-main.vercel.app/",
+      image: "/images/CinemaDB.png",
+      featured: true,
+    },
+    {
       title: "EDHEX Admin",
       description: "Sistema de administración para graduaciones educativas",
       link: "https://edhex-admim.vercel.app/",

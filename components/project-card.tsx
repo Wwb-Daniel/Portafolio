@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, Eye } from "lucide-react"
 
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -19,7 +19,7 @@ export function ProjectCard({ title, description, link, image }: ProjectCardProp
 
   return (
     <Card
-      className="project-card-glass overflow-hidden h-[320px] relative group rounded-2xl"
+      className="overflow-hidden transition-all duration-500 h-[320px] relative group glass-card subtle-border glow-effect"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -28,30 +28,70 @@ export function ProjectCard({ title, description, link, image }: ProjectCardProp
           src={image || "/placeholder.svg"}
           alt={title}
           fill
-          className={`object-cover transition-all duration-700 ${isHovered ? "scale-110 opacity-20" : "opacity-40"}`}
+          className={`object-cover transition-all duration-700 ${
+            isHovered ? "scale-110 opacity-20 blur-sm" : "opacity-50"
+          }`}
         />
-        {/* Gradient overlay */}
-        <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-500 ${isHovered ? 'opacity-90' : 'opacity-60'}`} />
+        <div
+          className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-all duration-500 ${
+            isHovered ? "opacity-100" : "opacity-70"
+          }`}
+        />
       </div>
+
+      {/* Efecto de brillo en hover */}
+      <div
+        className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 transition-all duration-700 ${
+          isHovered ? "translate-x-full" : "-translate-x-full"
+        }`}
+      />
 
       <CardContent className="relative h-full flex flex-col justify-end p-6 z-10">
         <div
-          className={`transition-all duration-500 ${isHovered ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
+          className={`transition-all duration-500 transform ${
+            isHovered ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+          }`}
         >
-          <p className="text-gray-200 mb-4 text-sm leading-relaxed">{description}</p>
+          <p className="text-gray-300 mb-4 text-sm leading-relaxed backdrop-blur-sm bg-black/20 rounded-lg p-3">
+            {description}
+          </p>
           <Link
             href={link}
             target="_blank"
-            className="inline-flex items-center gap-2 glass-button px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-blue-500/20 to-purple-500/20 hover:from-blue-500/30 hover:to-purple-500/30 transition-all duration-300"
+            className="inline-flex items-center gap-2 text-purple-300 hover:text-purple-200 transition-all duration-300 text-sm font-medium bg-purple-500/20 backdrop-blur-sm rounded-full px-4 py-2 border border-purple-500/30 hover:bg-purple-500/30 hover:scale-105"
           >
-            Ver proyecto <ExternalLink className="w-4 h-4" />
+            <Eye className="w-4 h-4" />
+            Ver proyecto
+            <ExternalLink className="w-4 h-4" />
           </Link>
         </div>
 
-        <h3 className={`text-xl font-bold transition-all duration-500 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent ${isHovered ? "mb-4" : "mb-0"}`}>
+        <h3
+          className={`text-xl font-semibold text-white transition-all duration-500 ${
+            isHovered ? "mb-4 transform scale-105 text-purple-200" : "mb-0"
+          }`}
+        >
           {title}
         </h3>
       </CardContent>
+
+      {/* Partículas de hover */}
+      {isHovered && (
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(3)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-purple-400 rounded-full opacity-80 animate-ping"
+              style={{
+                left: `${20 + i * 30}%`,
+                top: `${20 + i * 20}%`,
+                animationDelay: `${i * 0.3}s`,
+                animationDuration: "1s",
+              }}
+            />
+          ))}
+        </div>
+      )}
     </Card>
   )
 }
